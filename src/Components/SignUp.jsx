@@ -6,8 +6,11 @@ import { BiSolidShow } from "react-icons/bi";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { useUserSignupMutation } from "../ReduxToolkit/UserApi/authapi";
+import { toast } from "react-toastify";
 const SignUp = () => {
+  const [userSignup, { isError, isLoading, err }] = useUserSignupMutation();
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
   const [avatar, setAvatar] = useState(null);
 
@@ -36,12 +39,21 @@ const SignUp = () => {
         }
       ),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      if (values.avatar) {
-        console.log("Image File:", values.avatar);
+    onSubmit: async (values, action) => {
+      try {
+        const user = {
+          email: values.email,
+          password: values.password,
+          fullName: values.fullName,
+        };
+        const response = await userSignup(user).unwrap();
+        console.log(response);
+        toast.success("Successfully Registered ");
+      } catch (error) {
+        console.log(error);
+        toast.error(error.data.message);
+        action.resetForm();
       }
-      // Add your form submission logic here
     },
   });
 
