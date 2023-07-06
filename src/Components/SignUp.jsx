@@ -5,11 +5,12 @@ import * as Yup from "yup";
 import { BiSolidShow } from "react-icons/bi";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { RxAvatar } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useUserSignupMutation } from "../ReduxToolkit/UserApi/authapi";
 import { toast } from "react-toastify";
 const SignUp = () => {
+  const nav = useNavigate();
   const [userSignup, { isError, isLoading, err }] = useUserSignupMutation();
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
   const [avatar, setAvatar] = useState(null);
@@ -45,10 +46,12 @@ const SignUp = () => {
           email: values.email,
           password: values.password,
           fullName: values.fullName,
+          // avatar: values.avatar,
         };
         const response = await userSignup(user).unwrap();
         console.log(response);
         toast.success("Successfully Registered ");
+        nav("/login");
       } catch (error) {
         console.log(error);
         toast.error(error.data.message);
