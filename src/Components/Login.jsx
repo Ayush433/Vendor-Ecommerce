@@ -4,9 +4,16 @@ import React from "react";
 import * as Yup from "yup";
 import { BiSolidShow } from "react-icons/bi";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserLoginMutation } from "../ReduxToolkit/UserApi/authapi";
+import { addUser } from "../ReduxToolkit/userSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const [userLogin, { isError, isLoading, err }] = useUserLoginMutation();
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const formik = useFormik({
@@ -21,8 +28,20 @@ const Login = () => {
         .required("Required"),
     }),
     onSubmit: async (values, action) => {
-      console.log(values); // Log form values to the console
-      action.resetForm();
+      try {
+        //user toolkit batw user ly query greko xa tei varw
+        const user = {
+          email: values.email,
+          password: values.password,
+        };
+        const response = await userLogin(user).unwrap();
+        dispatch(addUser(response.data));
+        nav("/");
+        toast.success("Login Successfully");
+      } catch (error) {
+        toast.error(error.data.message);
+        action.resetForm();
+      }
     },
   });
 

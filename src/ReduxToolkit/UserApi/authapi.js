@@ -6,7 +6,7 @@ export const authapi = createApi({
   endpoints: (builder) => ({
     userLogin: builder.mutation({
       query: (user) => ({
-        url: "/api/",
+        url: "/api/login",
         body: user,
         method: "POST",
       }),

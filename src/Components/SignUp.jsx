@@ -50,12 +50,12 @@ const SignUp = () => {
         };
         const response = await userSignup(user).unwrap();
         console.log(response);
-        toast.success("Successfully Registered ");
         nav("/login");
+        toast.success(response.message);
       } catch (error) {
         console.log(error);
-        toast.error(error.data.message);
         action.resetForm();
+        toast.error(error.data.message);
       }
     },
   });
