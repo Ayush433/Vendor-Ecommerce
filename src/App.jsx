@@ -6,6 +6,7 @@ import NotFound from "./Components/NotFound";
 import SignUp from "./Components/SignUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Home from "./Pages/Home";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       <ToastContainer
         position="top-right"

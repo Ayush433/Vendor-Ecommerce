@@ -1,0 +1,79 @@
+import React from "react";
+import { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { productData } from "../Static/data";
+import { IoIosArrowForward } from "react-icons/io";
+
+const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchData, setSearchData] = useState("");
+  console.log(searchData);
+
+  const handleSearch = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    const filterProducts = productData.filter((product) =>
+      product.name.toLowerCase().includes(term.toLowerCase())
+    );
+    setSearchData(filterProducts);
+  };
+  return (
+    <div>
+      <div className="section relative ">
+        <div className=" flex h-[40px] my-[10px]  items-center justify-between">
+          <div className="absolute">
+            <Link to="">
+              <img
+                src="data:image/png;base64,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"
+                alt="image"
+                className="w-[80%] h-[80%]"
+              />
+            </Link>
+          </div>
+          {/* search bar  */}
+          <div className="w-[50%] relative ml-[200px] mt-7 md:ml-[400px]">
+            <input
+              type="text "
+              placeholder="Search Prodiuct ...."
+              value={searchTerm}
+              onChange={handleSearch}
+              className="h-[40px] w-full px-2 border-[#3957db] border-[2px] rounded-md"
+            />
+            <AiOutlineSearch
+              size={30}
+              className="absolute right-2 top-1.5 cursor-pointer"
+            />
+            {searchData && searchData.length !== 0 ? (
+              <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+                {searchData &&
+                  searchData.map((i, index) => {
+                    const d = i.name;
+                    const p = d.replace(/\s+/, "-"); // this is for remove that space
+                    return (
+                      <Link to={`/product/${p}`}>
+                        <div className="w-full flex item-start py-3">
+                          <img
+                            src={i.image_Url}
+                            alt="not found"
+                            className="h-[40px] w-[40px] mr-[10px]"
+                          />
+                          <h1>{i.name}</h1>
+                        </div>
+                      </Link>
+                    );
+                  })}
+              </div>
+            ) : null}
+          </div>
+          <div className=" text-[#fff] flex items-center bg-black md:mr-[110px] md:mt-7 md:text-lg font-semibold md:p-2 text-sm mt-7 ml-3 ">
+            <button className="">Become Seller</button>
+            <IoIosArrowForward />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
