@@ -1,14 +1,23 @@
 import React from "react";
 import { useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import {
+  AiOutlineHeart,
+  AiOutlineSearch,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import { productData } from "../Static/data";
-import { IoIosArrowForward } from "react-icons/io";
+import { productData, categoriesData } from "../Static/data";
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { BiMenuAltLeft } from "react-icons/bi";
+import DropDown from "./DropDown";
+import Navbar from "../Components/Navbar";
 
-const Header = () => {
+const Header = ({ activeHeading }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState("");
-  console.log(searchData);
+  const [active, setActive] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -18,9 +27,16 @@ const Header = () => {
     );
     setSearchData(filterProducts);
   };
+  window.addEventListener("scroll", () => {
+    if (window.screenY > 70) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  });
   return (
     <div>
-      <div className="section relative ">
+      <div className="relative ">
         <div className=" flex h-[40px] my-[10px]  items-center justify-between">
           <div className="absolute">
             <Link to="">
@@ -66,9 +82,60 @@ const Header = () => {
               </div>
             ) : null}
           </div>
-          <div className=" text-[#fff] flex items-center bg-black md:mr-[110px] md:mt-7 md:text-lg font-semibold md:p-2 text-sm mt-7 ml-3 ">
+          <div className=" text-[#fff] flex items-center bg-black md:mr-[110px] md:mt-7 md:text-lg font-semibold md:p-2 text-sm mt-7 ml-3 rounded-lg ">
             <button className="">Become Seller</button>
             <IoIosArrowForward />
+          </div>
+        </div>
+      </div>
+      <div className="relative flex justify-between w-full ">
+        {/* Catagories */}
+        <div
+          className={`${
+            active === true ? "shadow-sm fixed top-0 left-o z-10" : null
+          } transition md:flex iteam-center justify-between w-[100%] bg-[#3321c8] h-[70px] mt-4`}
+        >
+          <div className="relative  ml-[35px] h-[60px] mt-[20px] md:mt-[10px] md:ml-[40px] w-[270px] md:hidden lg:block">
+            <BiMenuAltLeft
+              size={30}
+              className="absolute top-3 left-2 mb-[200px]"
+            />
+            <button className="h-[100%] flex justify-between items-center pl-10 bg-white font-Poppins text-lg font-[500] select-none rounded-t-md ">
+              {" "}
+              All Catagories
+            </button>
+            <IoIosArrowDown
+              size={20}
+              className="absolute right-2 top-4 cursor-pointer"
+              onClick={() => setDropDown(!dropDown)}
+            />
+
+            {dropDown ? (
+              <DropDown
+                catagoriesData={categoriesData}
+                dropDown={dropDown}
+                setDropDown={setDropDown}
+              />
+            ) : null}
+          </div>
+          {/* Navbar */}
+          <div className="">
+            <Navbar active={activeHeading} />
+          </div>
+          <div className="flex mr-4">
+            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
+              <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
+              <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center"></span>
+            </div>
+            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
+              <AiOutlineShoppingCart size={30} color="rgb(255 255 255 / 83%)" />
+              <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center">
+                1
+              </span>
+            </div>
+            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
+              <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+            </div>
           </div>
         </div>
       </div>
