@@ -6,7 +6,7 @@ import Hero from "./Hero";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Header activeHeading={1} />
       <Hero />
       <Categories />

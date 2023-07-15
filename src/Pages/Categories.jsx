@@ -10,7 +10,7 @@ const Categories = () => {
   return (
     <>
       <div className="mt-[280px] md:mt-[500px]">
-        <div className=" my-30 flex justify-between items-center w-full shadow-sm bg-gray-300 p-5 rounded-md">
+        <div className="flex justify-between items-center w-full shadow-sm bg-gray-300 p-5 rounded-md">
           {brandingData &&
             brandingData.map((item) => {
               return (
@@ -25,7 +25,7 @@ const Categories = () => {
             })}
         </div>
       </div>
-      <div className=" mb-8 grid grid-cols-1 gap-[50px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl-grid-cols-5 xl-gap-[30px]  ">
+      <div className=" mb-10 grid grid-cols-1 gap-[50px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl-grid-cols-5 xl-gap-[30px] bg-neutral-50 md:w-[95%] md:ml-10 md:mt-9 rounded-md shadow-xl">
         {categoriesData &&
           categoriesData.map((i) => {
             const handleSubmit = (i) => {
