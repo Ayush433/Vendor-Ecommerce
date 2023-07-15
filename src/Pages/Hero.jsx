@@ -22,12 +22,6 @@ const Hero = () => {
               </button>
             </div>
           </Link>
-          {/* <p className="pt-4 text-[16px] font-Poppins text-white md:ml-[450px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            aperiam nam ut quia eveniet quis voluptates magnam, explicabo
-            voluptatibus dolores sed quo iste? Voluptas corrupti dolorum cum
-            quibusdam laboriosam doloremque?
-          </p> */}
         </div>
       </div>
     </div>

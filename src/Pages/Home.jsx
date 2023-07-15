@@ -1,5 +1,7 @@
 import React from "react";
+import Navbar from "../Components/Navbar";
 import Header from "../Layout/Header";
+import Categories from "./Categories";
 import Hero from "./Hero";
 
 const Home = () => {
@@ -7,6 +9,7 @@ const Home = () => {
     <div>
       <Header activeHeading={1} />
       <Hero />
+      <Categories />
     </div>
   );
 };
