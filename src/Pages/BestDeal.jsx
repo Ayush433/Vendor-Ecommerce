@@ -16,7 +16,7 @@ const BestDeal = () => {
     <div>
       <div className="">
         <h1 className="font-bold  text-3xl">Best Deals</h1>
-        <div className=" mb-10 grid grid-cols-1 gap-[10px] md:grid-cols-3 lg:grid-cols-4 lg:gap-[20px] xl-grid-cols-5 xl-gap-[30px] bg-neutral-50 md:w-[95%] md:ml-10 md:mt-9 rounded-md shadow-xl">
+        <div className="">
           {data &&
             data.map((i, index) => {
               return <ProductCart data={i} key={index} />;

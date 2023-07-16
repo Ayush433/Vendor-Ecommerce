@@ -12,8 +12,8 @@ const ProductCart = ({ data }) => {
   const product_name = d.replace(/\+/g, "-");
   return (
     <>
-      <div className="w-full h-[300px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer">
-        <div className="flex justify-end"></div>
+      <div className="">
+        <div className=""></div>
         <Link to={`/product/${product_name}`}>
           <img
             src={data?.image_Url[0]?.url}
