@@ -7,7 +7,7 @@ import Hero from "./Hero";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="bg-slate-100">
       <Header activeHeading={1} />
       <Hero />
       <Categories />

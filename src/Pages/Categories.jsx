@@ -9,7 +9,7 @@ const Categories = () => {
   console.log("cat", categoriesData);
   return (
     <>
-      <div className="mt-[280px] md:mt-[500px]">
+      <div className="mt-[280px] md:mt-[590px]">
         <div className="flex justify-between items-center w-full shadow-sm bg-gray-300 p-5 rounded-md">
           {brandingData &&
             brandingData.map((item) => {
@@ -25,7 +25,7 @@ const Categories = () => {
             })}
         </div>
       </div>
-      <div className=" mb-10 grid grid-cols-1 gap-[50px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl-grid-cols-5 xl-gap-[30px] bg-neutral-50 md:w-[95%] md:ml-10 md:mt-9 rounded-md shadow-xl">
+      <div className=" mb-10 grid grid-cols-1 gap-[50px] md:grid-cols-2 md:gap-[10px] lg:grid-cols-4 lg:gap-[20px] xl-grid-cols-5 xl-gap-[30px] bg-neutral-50 md:w-[95%] md:ml-10 md:mt-9 rounded-md shadow-md">
         {categoriesData &&
           categoriesData.map((i) => {
             const handleSubmit = (i) => {
@@ -33,7 +33,7 @@ const Categories = () => {
             };
             return (
               <div
-                className="w-full h-[100px] items-center justify-around cursor-pointer overflow-hidden flex "
+                className="w-full h-[150px] items-center justify-around cursor-pointer overflow-hidden flex "
                 key={i.id}
                 onClick={() => handleSubmit}
               >
