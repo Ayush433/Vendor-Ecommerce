@@ -48,14 +48,6 @@ const ProductCart = ({ data }) => {
           <AiFillStar color="#F6BA00" size={20} />
         </div>
         <div className="py-2 flex items-center justify-between">
-          <div className="flex">
-            <h5 className="mt-[12px]">
-              Rs.{data?.price === 0 ? data?.price : data?.discount_price}
-            </h5>
-            <h4 className="ml-3 text-red-600 line-through">
-              {data?.price ? data.price + "$" : null}
-            </h4>
-          </div>
           <span className="font-semibold mr-9 text-[17px] text-[#68d284]">
             {data?.total_sell} Sold
           </span>

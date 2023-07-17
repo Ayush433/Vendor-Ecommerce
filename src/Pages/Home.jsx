@@ -3,6 +3,8 @@ import Navbar from "../Components/Navbar";
 import Header from "../Layout/Header";
 import BestDeal from "./BestDeal";
 import Categories from "./Categories";
+import Events from "./Events";
+// import FeaturesDeal from "./FeaturesDeal";
 import Hero from "./Hero";
 
 const Home = () => {
@@ -12,6 +14,8 @@ const Home = () => {
       <Hero />
       <Categories />
       <BestDeal />
+      <Events />
+      {/* <FeaturesDeal /> */}
     </div>
   );
 };
