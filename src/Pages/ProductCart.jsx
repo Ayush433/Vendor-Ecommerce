@@ -1,8 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import { AiFillStar } from "react-icons/ai";
+import {
+  AiFillHeart,
+  AiFillStar,
+  AiOutlineAlert,
+  AiOutlineEye,
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { productData } from "../Static/data";
+import ProductDetailCart from "./ProductDetailCart";
 
 const ProductCart = ({ data }) => {
   console.log("data", data);
@@ -42,12 +50,49 @@ const ProductCart = ({ data }) => {
         <div className="py-2 flex items-center justify-between">
           <div className="flex">
             <h5 className="mt-[12px]">
-              ${data?.price === 0 ? data?.price : data?.discount_price}
+              Rs.{data?.price === 0 ? data?.price : data?.discount_price}
             </h5>
             <h4 className="ml-3 text-red-600 line-through">
               {data?.price ? data.price + "$" : null}
             </h4>
           </div>
+          <span className="font-semibold mr-9 text-[17px] text-[#68d284]">
+            {data?.total_sell} Sold
+          </span>
+        </div>
+        <div>
+          {click ? (
+            <AiFillHeart
+              size={22}
+              className="cursor-pointer absolute right-2 top-5 "
+              onClick={() => setClick(!click)}
+              color={click ? "red" : "#333"}
+              title="Remove From WishList"
+            />
+          ) : (
+            <AiOutlineHeart
+              size={28}
+              className="cursor-pointer absolute right-2 top-5 "
+              onClick={() => setClick(!click)}
+              color={click ? "red" : "black"}
+              title="Add to WishList"
+            />
+          )}
+          <AiOutlineEye
+            size={28}
+            className="cursor-pointer absolute right-2 top-[55px] "
+            onClick={() => setOpen(!open)}
+            color="#333"
+            title="Quick View"
+          />
+          <AiOutlineShoppingCart
+            size={28}
+            className="cursor-pointer absolute right-2 top-[95px] "
+            onClick={() => setOpen(!open)}
+            color="#444"
+            title="Add to Cart"
+          />
+          {open ? <ProductDetailCart setOpen={setOpen} data={data} /> : null}
         </div>
       </div>
     </>
