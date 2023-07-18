@@ -123,7 +123,7 @@ const Header = ({ activeHeading }) => {
             <Navbar active={activeHeading} />
           </div>
           <div className="flex mr-4">
-            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
+            <div className="relative cursor-pointer md:mr-[30px] md:mt-5">
               <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
               <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center"></span>
             </div>

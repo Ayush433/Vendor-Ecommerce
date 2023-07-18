@@ -6,6 +6,7 @@ import Categories from "./Categories";
 import Events from "./Events";
 import FeaturesDeal from "./FeaturesDeal";
 import Hero from "./Hero";
+import Sponsored from "./Sponsored";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <BestDeal />
       <Events />
       <FeaturesDeal />
+      <Sponsored />
     </div>
   );
 };
