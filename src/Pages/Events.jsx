@@ -5,14 +5,14 @@ const Events = () => {
   return (
     <div className="">
       <h1 className="font-bold p-6  text-3xl">Popular Events</h1>
-      <div className=" w-full md:w-[80%] md:ml-[150px] block bg-white rounded-lg lg:flex p-2 pb-7 ">
+      <div className=" w-full md:w-[70%] md:ml-[250px] block bg-white rounded-lg lg:flex p-2 mb-10 ">
         <div className="w-full lg:-w[50%] m-auto">
           <img
             src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg"
             alt="image"
           />
         </div>
-        <div className="w-full lg:-w[50%] flex flex-col justify-center md:mb-[250px] md:mt-[20px]">
+        <div className="w-full lg:-w[50%] flex flex-col justify-center md:mb-[250px] md:mt-[140px]">
           <h2 className="text-3xl font-bold">Iphone 14 Pro Max</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nam

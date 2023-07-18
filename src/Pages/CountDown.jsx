@@ -23,14 +23,17 @@ const CountDown = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  });
 
   const timerComponents = Object.keys(timeLeft).map((interval) => {
     if (!timeLeft[interval]) {
       return null;
     }
     return (
-      <span className="text-[25px] text-[#475ad2] p-1" key={interval}>
+      <span
+        className="text-[16px] text-[#475ad2] p-1 mr-3 font-semibold"
+        key={interval}
+      >
         {timeLeft[interval]}
         {interval}
         {""}
@@ -43,7 +46,7 @@ const CountDown = () => {
       {timerComponents.length ? (
         timerComponents
       ) : (
-        <span className="text-[red] text-[25px] p-6"> Times Up</span>
+        <span className="text-[red] text-[25px] p-2"> Times Up</span>
       )}
     </div>
   );
