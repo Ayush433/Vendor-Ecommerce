@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Layout/Footer";
 import Header from "../Layout/Header";
 import BestDeal from "./BestDeal";
 import Categories from "./Categories";
@@ -18,6 +19,7 @@ const Home = () => {
       <Events />
       <FeaturesDeal />
       <Sponsored />
+      <Footer />
     </div>
   );
 };

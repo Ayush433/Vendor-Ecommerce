@@ -602,47 +602,60 @@ export const footerProductLinks = [
   },
   {
     name: "Store Locations",
+    link: "/location",
   },
   {
     name: "Our Blog",
+    link: "/blogs",
   },
   {
     name: "Reviews",
+    link: "/review",
   },
 ];
 
 export const footercompanyLinks = [
   {
     name: "Game & Video",
+    link: "/game",
   },
   {
     name: "Phone &Tablets",
+    link: "/phone",
   },
   {
     name: "Computers & Laptop",
+    link: "/computer",
   },
   {
     name: "Sport Watches",
+    link: "/watch",
   },
   {
     name: "Events",
+    link: "/events",
   },
 ];
 
 export const footerSupportLinks = [
   {
     name: "FAQ",
+    link: "/faq",
   },
   {
     name: "Reviews",
+    link: "/review",
   },
   {
     name: "Contact Us",
+    link: "/contact",
   },
   {
     name: "Shipping",
+    link: "/home",
   },
   {
     name: "Live chat",
+    link: "/message",
   },
 ];
