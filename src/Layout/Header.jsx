@@ -12,12 +12,18 @@ import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
 import DropDown from "./DropDown";
 import Navbar from "../Components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { clearUser } from "../ReduxToolkit/userSlice";
 
 const Header = ({ activeHeading }) => {
+  const { user } = useSelector((store) => store.user);
+
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState("");
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const handleSearch = (e) => {
     const term = e.target.value;
@@ -137,8 +143,46 @@ const Header = ({ activeHeading }) => {
                 1
               </span>
             </div>
-            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
-              <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 z-10">
+              <CgProfile
+                size={30}
+                color="rgb(255 255 255 / 83%)"
+                onClick={() => setDropdownVisible(!dropdownVisible)}
+              />
+              {dropdownVisible && (
+                <div className="absolute top-10 right-0 w-48 bg-white shadow-md rounded-md z-20">
+                  {user ? (
+                    <ul>
+                      <li className="px-4 py-2 hover:bg-gray-100">
+                        <Link
+                          to="/"
+                          className="text-gray-800"
+                          onClick={() => {
+                            dispatch(clearUser());
+                          }}
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  ) : (
+                    <>
+                      <ull>
+                        <li className="px-4 py-2 hover:bg-gray-100">
+                          <Link to="/login" className="text-gray-800">
+                            Sign In
+                          </Link>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100">
+                          <Link to="/signUp" className="text-gray-800">
+                            Register
+                          </Link>
+                        </li>
+                      </ull>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
