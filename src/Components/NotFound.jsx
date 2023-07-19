@@ -1,9 +1,11 @@
 import React from "react";
+import Header from "../Layout/Header";
 
 const NotFound = () => {
   return (
     <>
-      <div> Page Not Found</div>
+      <Header activeHeading={4} />
+      <div className=""> Page Not Found</div>
     </>
   );
 };

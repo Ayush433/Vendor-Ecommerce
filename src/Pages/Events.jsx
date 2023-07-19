@@ -1,11 +1,15 @@
 import React from "react";
 import CountDown from "./CountDown";
 
-const Events = () => {
+const Events = ({ active }) => {
   return (
     <div className="">
-      <h1 className="font-bold p-6  text-3xl">Popular Events</h1>
-      <div className=" w-full md:w-[70%] md:ml-[250px] block bg-white rounded-lg lg:flex p-2 mb-10 ">
+      <h1 className="font-bold p-6  text-3xl"></h1>
+      <div
+        className={`w-full md:w-[70%] md:ml-[250px] block bg-white rounded-lg ${
+          active ? "unset" : "mb-12"
+        } lg:flex p-2 mb-10`}
+      >
         <div className="w-full lg:-w[50%] m-auto">
           <img
             src="https://m.media-amazon.com/images/I/31Vle5fVdaL.jpg"

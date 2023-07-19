@@ -8,6 +8,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./Pages/Home";
 import ProductPage from "./Pages/ProductPage";
+import BestSelling from "./Pages/BestSelling";
+import AllEvents from "./Pages/AllEvents";
+import FAQPage from "./Pages/FAQPages";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +23,9 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/best-selling" element={<BestSelling />} />
+        <Route path="/events" element={<AllEvents />} />
+        <Route path="/faq" element={<FAQPage />} />
       </Routes>
       <ToastContainer
         position="top-right"
