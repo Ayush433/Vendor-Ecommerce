@@ -7,6 +7,7 @@ import SignUp from "./Components/SignUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./Pages/Home";
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductPage />} />
       </Routes>
       <ToastContainer
         position="top-right"

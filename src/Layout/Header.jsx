@@ -34,6 +34,7 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
+
   return (
     <div>
       <div className="relative ">
@@ -100,7 +101,10 @@ const Header = ({ activeHeading }) => {
               size={30}
               className="absolute top-3 left-2 mb-[200px]"
             />
-            <button className="h-[100%] flex justify-between items-center pl-10 bg-white font-Poppins text-lg font-[500] select-none rounded-t-md ">
+            <button
+              className="h-[100%] flex justify-between items-center pl-10 bg-white font-Poppins text-lg font-[500] select-none rounded-t-md "
+              onClick={() => setDropDown(!dropDown)}
+            >
               {" "}
               All Catagories
             </button>
