@@ -17,7 +17,6 @@ import { clearUser } from "../ReduxToolkit/userSlice";
 
 const Header = ({ activeHeading }) => {
   const { user } = useSelector((store) => store.user);
-
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState("");
@@ -41,9 +40,10 @@ const Header = ({ activeHeading }) => {
     }
   });
   const handleItemClick = (productName) => {
-    setSearchTerm(""); // Clear the search bar
-    setSearchData(""); // Clear the search data
-    history.push(`/products?=${productName}`); // Navigate to the clicked item's link
+    setSearchTerm("");
+
+    setSearchData("");
+    history.push(`/products?=${productName}`);
   };
 
   return (
