@@ -4,7 +4,7 @@ import CountDown from "./CountDown";
 const Events = ({ active }) => {
   return (
     <div className="">
-      <h1 className="font-bold p-6  text-3xl"></h1>
+      <h1 className="font-bold p-6  text-3xl">Popular Events</h1>
       <div
         className={`w-full md:w-[70%] md:ml-[250px] block bg-white rounded-lg ${
           active ? "unset" : "mb-12"

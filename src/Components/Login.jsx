@@ -29,7 +29,6 @@ const Login = () => {
     }),
     onSubmit: async (values, action) => {
       try {
-        //user toolkit batw user ly query greko xa tei varw
         const user = {
           email: values.email,
           password: values.password,

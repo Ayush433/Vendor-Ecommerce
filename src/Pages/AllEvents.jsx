@@ -7,7 +7,6 @@ const AllEvents = () => {
     <div>
       <Header activeHeading={4} />
       <Events active={true} />
-      <Events active={true} />
     </div>
   );
 };

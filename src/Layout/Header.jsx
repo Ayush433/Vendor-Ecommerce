@@ -6,7 +6,7 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { productData, categoriesData } from "../Static/data";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -40,6 +40,11 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
+  const handleItemClick = (productName) => {
+    setSearchTerm(""); // Clear the search bar
+    setSearchData(""); // Clear the search data
+    history.push(`/products?=${productName}`); // Navigate to the clicked item's link
+  };
 
   return (
     <div>
@@ -71,19 +76,21 @@ const Header = ({ activeHeading }) => {
               <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
                 {searchData &&
                   searchData.map((i, index) => {
-                    const d = i.name;
-                    const p = d.replace(/\s+/, "-"); // this is for remove that space
+                    const d = i?.name;
+                    const p = d.replace(/\s+/, "-");
                     return (
-                      <Link to={`/product/${p}`}>
-                        <div className="w-full flex item-start py-3">
-                          <img
-                            src={i.image_Url}
-                            alt="not found"
-                            className="h-[40px] w-[40px] mr-[10px]"
-                          />
-                          <h1>{i.name}</h1>
-                        </div>
-                      </Link>
+                      <div onClick={() => handleItemClick(p)} key={index}>
+                        <Link to={`/products?=${p}`}>
+                          <div className="w-full flex item-start py-3">
+                            <img
+                              src={i.image_Url}
+                              alt="not found"
+                              className="h-[40px] w-[40px] mr-[10px]"
+                            />
+                            <h1>{i.name}</h1>
+                          </div>
+                        </Link>
+                      </div>
                     );
                   })}
               </div>

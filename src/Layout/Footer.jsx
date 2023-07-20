@@ -33,12 +33,14 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:px-8 px-2 py-10 sm:text-center md:mt-[60px]">
-          <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
-            <img
-              src="data:image/png;base64,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"
-              alt="image"
-              className="w-[25%] h-[25%] rounded-lg"
-            />
+          <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center cursor-pointer">
+            <Link to="/">
+              <img
+                src="data:image/png;base64,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"
+                alt="image"
+                className="w-[25%] h-[25%] rounded-lg"
+              />
+            </Link>
             <br />
             <p className=" w-full mb-11">
               The home and elements needed to create beautiful products.
@@ -50,6 +52,7 @@ const Footer = () => {
               <BsLinkedin size={25} />
             </div>
           </ul>
+
           <ul className="text-center sm:text-start">
             <h1 className="mb-1 font-semibold">Company</h1>
             {footerProductLinks.map((link) => {

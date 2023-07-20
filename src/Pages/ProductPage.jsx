@@ -1,27 +1,50 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Header from "../Layout/Header";
 import { productData } from "../Static/data";
-import FeaturesDeal from "./FeaturesDeal";
 import ProductCart from "./ProductCart";
 
-const ProductPage = ({ catagoriesData }) => {
+const ProductPage = () => {
   const [searchParams] = useSearchParams();
+  const { id } = useParams();
   const categoriesData = searchParams.get("category");
-  console.log("categoriesData", categoriesData);
+  const searchTerm = searchParams.get("q");
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    if (categoriesData === null) {
-      const d =
-        productData && productData.sort((a, b) => a.total_sell - b.total_sell);
-      setData(d);
-    } else {
-      const d =
-        productData && productData.filter((i) => i.category === categoriesData);
-      setData(d);
+    if (categoriesData && searchTerm) {
+      const filteredData =
+        productData &&
+        productData.filter(
+          (item) =>
+            item.category === categoriesData &&
+            item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      setData(filteredData);
     }
-    //   window.sc
-  }, []);
+    // If only category is present
+    else if (categoriesData && !searchTerm) {
+      const filteredData =
+        productData &&
+        productData.filter((item) => item.category === categoriesData);
+      setData(filteredData);
+    }
+    // If only search term is present
+    else if (!categoriesData && searchTerm) {
+      const filteredData =
+        productData &&
+        productData.filter((item) =>
+          item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      setData(filteredData);
+    }
+    // If neither category nor search term is present, show all products sorted by total_sell
+    else {
+      const sortedData =
+        productData && productData.sort((a, b) => a.total_sell - b.total_sell);
+      setData(sortedData);
+    }
+  }, [categoriesData, searchTerm]);
 
   return (
     <div>
