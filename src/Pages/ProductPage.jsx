@@ -1,50 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import Header from "../Layout/Header";
-import { productData } from "../Static/data";
+import { productData, categoriesData } from "../Static/data";
 import ProductCart from "./ProductCart";
 
-const ProductPage = () => {
+const ProductPage = ({}) => {
   const [searchParams] = useSearchParams();
-  const { id } = useParams();
   const categoriesData = searchParams.get("category");
   const searchTerm = searchParams.get("q");
   const [data, setData] = useState([]);
 
+  console.log("categoriesData", categoriesData);
+  console.log("searchTerm", searchTerm);
+
   useEffect(() => {
-    if (categoriesData && searchTerm) {
-      const filteredData =
-        productData &&
-        productData.filter(
-          (item) =>
-            item.category === categoriesData &&
-            item.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      setData(filteredData);
-    }
-    // If only category is present
-    else if (categoriesData && !searchTerm) {
-      const filteredData =
-        productData &&
-        productData.filter((item) => item.category === categoriesData);
-      setData(filteredData);
-    }
-    // If only search term is present
-    else if (!categoriesData && searchTerm) {
-      const filteredData =
-        productData &&
-        productData.filter((item) =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      setData(filteredData);
-    }
-    // If neither category nor search term is present, show all products sorted by total_sell
-    else {
-      const sortedData =
+    if (categoriesData === null && searchTerm === null) {
+      const d =
         productData && productData.sort((a, b) => a.total_sell - b.total_sell);
-      setData(sortedData);
+      setData(d);
+    } else {
+      if (categoriesData === null && searchTerm) {
+        const d =
+          productData && productData.filter((i) => i?.name === searchTerm);
+
+        setData(d);
+        console.log("d", d);
+      } else {
+        if (categoriesData && searchTerm === null) {
+          const d =
+            productData &&
+            productData.filter((i) => i.category === categoriesData);
+          setData(d);
+        }
+      }
     }
-  }, [categoriesData, searchTerm]);
+  }, []);
 
   return (
     <div>

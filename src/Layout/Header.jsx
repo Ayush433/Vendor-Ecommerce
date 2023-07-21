@@ -6,7 +6,7 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { productData, categoriesData } from "../Static/data";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -27,9 +27,11 @@ const Header = ({ activeHeading }) => {
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
-    const filterProducts = productData.filter((product) =>
-      product.name.toLowerCase().includes(term.toLowerCase())
-    );
+    const filterProducts =
+      productData &&
+      productData.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
     setSearchData(filterProducts);
   };
   window.addEventListener("scroll", () => {
@@ -39,11 +41,11 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
+  const navigate = useNavigate();
   const handleItemClick = (productName) => {
     setSearchTerm("");
-
     setSearchData("");
-    history.push(`/products?=${productName}`);
+    // navigate(`/products?q=${productName}`);
   };
 
   return (
@@ -77,10 +79,10 @@ const Header = ({ activeHeading }) => {
                 {searchData &&
                   searchData.map((i, index) => {
                     const d = i?.name;
-                    const p = d.replace(/\s+/, "-");
+                    // const p = d.replace(/\s+/, "-");
                     return (
-                      <div onClick={() => handleItemClick(p)} key={index}>
-                        <Link to={`/products?=${p}`}>
+                      <div onClick={() => handleItemClick(d)} key={index}>
+                        <Link to={`/products?q=${d}`}>
                           <div className="w-full flex item-start py-3">
                             <img
                               src={i.image_Url}
