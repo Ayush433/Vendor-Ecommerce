@@ -14,6 +14,7 @@ import DropDown from "./DropDown";
 import Navbar from "../Components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../ReduxToolkit/userSlice";
+import Cart from "../Pages/Cart";
 
 const Header = ({ activeHeading }) => {
   const { user } = useSelector((store) => store.user);
@@ -23,7 +24,8 @@ const Header = ({ activeHeading }) => {
   const [active, setActive] = useState(false);
   const [dropDown, setDropDown] = useState(false);
   const [dropdownVisible, setDropdownVisible] = useState(false);
-
+  const [openCart, setOpenCart] = useState(false);
+  const [openWishList, setOpenWishList] = useState(false);
   const handleSearch = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
@@ -146,7 +148,10 @@ const Header = ({ activeHeading }) => {
               <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
               <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center"></span>
             </div>
-            <div className="relative cursor-pointer md:mr-[30px] md:mt-5 ">
+            <div
+              className="relative cursor-pointer md:mr-[30px] md:mt-5 "
+              onClick={() => setOpenCart(true)}
+            >
               <AiOutlineShoppingCart size={30} color="rgb(255 255 255 / 83%)" />
               <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center">
                 1
@@ -176,7 +181,7 @@ const Header = ({ activeHeading }) => {
                     </ul>
                   ) : (
                     <>
-                      <ull>
+                      <ul>
                         <li className="px-4 py-2 hover:bg-gray-100">
                           <Link to="/login" className="text-gray-800">
                             Sign In
@@ -187,12 +192,13 @@ const Header = ({ activeHeading }) => {
                             Register
                           </Link>
                         </li>
-                      </ull>
+                      </ul>
                     </>
                   )}
                 </div>
               )}
             </div>
+            {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
           </div>
         </div>
       </div>
