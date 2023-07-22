@@ -3,8 +3,10 @@ import { RxCross1 } from "react-icons/rx";
 import { IoBagHandleOutline } from "react-icons/io5";
 import SingleCart from "./SingleCart";
 import { Link } from "react-router-dom";
+import WishListCart from "./WishListCart";
+import { AiOutlineHeart } from "react-icons/ai";
 
-const Cart = ({ setOpenCart }) => {
+const OpenWhishList = ({ setOpenWishList }) => {
   const cartData = [
     {
       name: "Hoodies Hoodie Fleece Men Casual Bright Colored Cheap Hoodies And Sweat Pants Set Free Sample H",
@@ -29,26 +31,19 @@ const Cart = ({ setOpenCart }) => {
           <RxCross1
             size={25}
             className="cursor-pointer"
-            onClick={() => setOpenCart(false)}
+            onClick={() => setOpenWishList(false)}
           />
         </div>
         {/* items length */}
         <div className="mb-[500px]">
           <div className="flex">
-            <IoBagHandleOutline size={25} />
+            <AiOutlineHeart size={30} className="ml-3" />
             <h5 className="pl-2 text-[20px] font-[500]"> 3 items</h5>
           </div>
 
           <div className="w-full border-t">
             {cartData &&
-              cartData.map((i, index) => <SingleCart data={i} key={index} />)}
-          </div>
-          <div className="px-5 mb-3 ">
-            <Link to="/checkout">
-              <button className="bg-red-500 h-[45px] w-full rounded-[5px] mb-12">
-                CheckOut Now
-              </button>
-            </Link>
+              cartData.map((i, index) => <WishListCart data={i} key={index} />)}
           </div>
         </div>
       </div>
@@ -56,4 +51,4 @@ const Cart = ({ setOpenCart }) => {
   );
 };
 
-export default Cart;
+export default OpenWhishList;

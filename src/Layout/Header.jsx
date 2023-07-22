@@ -15,6 +15,7 @@ import Navbar from "../Components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../ReduxToolkit/userSlice";
 import Cart from "../Pages/Cart";
+import OpenWhishList from "../Pages/OpenWhishList";
 
 const Header = ({ activeHeading }) => {
   const { user } = useSelector((store) => store.user);
@@ -144,7 +145,10 @@ const Header = ({ activeHeading }) => {
             <Navbar active={activeHeading} />
           </div>
           <div className="flex mr-4">
-            <div className="relative cursor-pointer md:mr-[30px] md:mt-5">
+            <div
+              className="relative cursor-pointer md:mr-[30px] md:mt-5"
+              onClick={() => setOpenWishList(true)}
+            >
               <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
               <span className="absolute right-0 top-0  rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-Poppins text-[12px] leading-tight text-center"></span>
             </div>
@@ -198,7 +202,13 @@ const Header = ({ activeHeading }) => {
                 </div>
               )}
             </div>
-            {openCart ? <Cart setOpenCart={setOpenCart} /> : null}
+            <div>{openCart ? <Cart setOpenCart={setOpenCart} /> : null}</div>
+
+            <div>
+              {openWishList ? (
+                <OpenWhishList setOpenWishList={setOpenWishList} />
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
