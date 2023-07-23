@@ -23,7 +23,7 @@ const ProductCart = ({ data }) => {
     <>
       <div className="w-full h-[370px] bg-white rounded-lg shadow-lg p-3 relative cursor-pointer">
         <div className="flex justify-end"></div>
-        <Link to={`/product/${product_name}`}>
+        <Link to={`/products/${product_name}`}>
           <img
             src={data?.image_Url[0]?.url}
             alt="image"

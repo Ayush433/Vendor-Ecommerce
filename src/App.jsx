@@ -11,6 +11,7 @@ import ProductPage from "./Pages/ProductPage";
 import BestSelling from "./Pages/BestSelling";
 import AllEvents from "./Pages/AllEvents";
 import FAQPage from "./Pages/FAQPages";
+import ProductDetails from "./Pages/ProductDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +23,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/" element={<Home />} />
-        <Route exact path="/products" element={<ProductPage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:name" element={<ProductDetails />} />
         <Route path="/best-selling" element={<BestSelling />} />
         <Route path="/events" element={<AllEvents />} />
         <Route path="/faq" element={<FAQPage />} />
