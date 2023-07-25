@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
+import Footer from "../Layout/Footer";
 import Header from "../Layout/Header";
 import { productData, categoriesData } from "../Static/data";
 import ProductCart from "./ProductCart";
@@ -49,6 +50,7 @@ const ProductPage = ({}) => {
           </h1>
         ) : null}
       </div>
+      <Footer />
     </div>
   );
 };

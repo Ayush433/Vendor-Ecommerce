@@ -48,7 +48,6 @@ const Header = ({ activeHeading }) => {
   const handleItemClick = (productName) => {
     setSearchTerm("");
     setSearchData("");
-    // navigate(`/products?q=${productName}`);
   };
 
   return (
@@ -82,7 +81,6 @@ const Header = ({ activeHeading }) => {
                 {searchData &&
                   searchData.map((i, index) => {
                     const d = i?.name;
-                    // const p = d.replace(/\s+/, "-");
                     return (
                       <div onClick={() => handleItemClick(d)} key={index}>
                         <Link to={`/products?q=${d}`}>

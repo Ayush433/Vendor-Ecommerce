@@ -131,7 +131,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <button
-                      className="bg-black rounded-md md:h-12 mt-2 md:h-15 h-[40px] text-white md:w-[30%] w-[150px] flex item-center md:ml-4 pb-7"
+                      className="bg-black rounded-md md:h-12 mt-2 md:h-15 h-[40px] text-white md:w-[30%] w-[150px] flex item-center md:ml-4 pb-7yt=-"
                       onClick={handleShoppingCart}
                     >
                       <span className="ml-4 mt-3 ">Add to Cart</span>

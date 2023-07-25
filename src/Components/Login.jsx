@@ -38,12 +38,21 @@ const Login = () => {
         nav("/");
         toast.success("Login Successfully");
       } catch (error) {
-        toast.error(error.data.message);
+        console.log(error);
+        const emailError = error?.data?.msg?.email;
+        const passwordError = error?.data?.msg?.password;
+
+        if (emailError && typeof emailError === "string") {
+          toast.error(emailError); // Display the email error message
+        } else if (passwordError && typeof passwordError === "string") {
+          toast.error(passwordError); // Display the password error message
+        } else {
+          toast.error("An unknown error occurred. Please try again.");
+        }
         action.resetForm();
       }
     },
   });
-
   // Function to toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

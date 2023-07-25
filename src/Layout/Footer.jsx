@@ -107,7 +107,7 @@ const Footer = () => {
             <span className="flex md:gap-2 cursor-pointer ml-11 md:ml-0 text-white">
               {" "}
               <AiOutlineCopyrightCircle size={20} />
-              2023 Kinemel Jhola . All righy reserved
+              2023 Kinemel Jhola . All right reserved
             </span>
           </span>
           <span className="cursor-pointer  hover:text-teal-400 ">

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "../Layout/Header";
 import { productData } from "../Static/data";
 import ProductCart from "./ProductCart";
+import Footer from "../Layout/Footer";
 
 const BestSelling = () => {
   const [data, setData] = useState();
@@ -22,6 +23,7 @@ const BestSelling = () => {
               return <ProductCart data={i} key={index} />;
             })}
         </div>
+        <Footer />
       </div>
     </div>
   );

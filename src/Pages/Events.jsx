@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Layout/Footer";
 import CountDown from "./CountDown";
 
 const Events = ({ active }) => {

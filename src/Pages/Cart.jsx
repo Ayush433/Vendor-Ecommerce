@@ -21,6 +21,11 @@ const Cart = ({ setOpenCart }) => {
       description: "j pani huna sakxa yeo static ho ",
       price: 999,
     },
+    {
+      name: "Hoodies Hoodie Fleece Men Casual Bright Colored Cheap Hoodies And Sweat Pants Set Free Sample H 14 pro max",
+      description: "j pani huna sakxa yeo static ho ",
+      price: 999,
+    },
   ];
   return (
     <div className="bg-[#0000004b] h-screen z-10 fixed top-0 left-0 w-full ">
